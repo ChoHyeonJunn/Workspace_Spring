@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Spring IoC Container -->
+	<!-- 여기서 객체가 생성됨 -> 사용할 곳에서 가져다 쓴다. -->
+	<bean id="korean" class="com.test03.MessageBeanKo"></bean>
+	<bean id="english" class="com.test03.MessageBeanEn"></bean>
+
+</beans>
