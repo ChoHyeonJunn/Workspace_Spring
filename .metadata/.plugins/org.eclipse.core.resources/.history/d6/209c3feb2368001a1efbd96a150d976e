@@ -1,0 +1,15 @@
+package com.test03;
+
+public abstract class Developer extends Emp {
+
+	private String dept;
+
+	public Developer() {
+
+	}
+
+	public Developer(String name, int salary) {
+		this.name = name;
+		this.salary = salary;
+	}
+}

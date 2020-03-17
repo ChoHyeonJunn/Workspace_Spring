@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 홍길동, 2500000, 개발팀 -->
+	<bean id="Developer" class="com.test03.Developer"></bean>
+	
+	<!-- 이순신, 2000000, 기술팀 -->
+	<bean id="Engineer" class="com.test03.Engineer"></bean>
+</beans>
