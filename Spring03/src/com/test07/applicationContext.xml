@@ -3,6 +3,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="samsong" class="com.test07.SamsongTV" init-method="wait"></bean>
-	<bean id="ig" class="com.test07.IgTV"></bean>
+	<bean id="samsong" class="com.test07.SamsongTV" lazy-init="true"></bean>
+	<bean id="ig" class="com.test07.IgTV" lazy-init="true"></bean>
+	
+	<!-- lazy-init : 호출하는 측에서 해당 객체 (getBean()) 을 호출하지 않으면 객체를 생성하지 않는다. -->
 </beans>
