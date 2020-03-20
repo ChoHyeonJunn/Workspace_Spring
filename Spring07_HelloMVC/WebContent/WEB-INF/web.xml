@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>Spring07_HelloMVC</display-name>
+
+
+	<!-- TODO : 02. listener (요청을 어떤 xml 에 매칭해야할지 알아서 실행시켜줌)-->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<context-param>
+		<!-- 프로젝트 전체에 적용되는 파라미터 -->
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/applicationContext.xml</param-value>
+	</context-param>
+
+
+	<!-- TODO : 03. DespatcherServlet (hello-servlet) : 요청에따라 어떤 컨트롤러를 매칭해야할지 -->
+	<servlet>
+		<servlet-name>hello</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<!-- /*.do 아님!!! -->
+		<servlet-name>hello</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+</web-app>

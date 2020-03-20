@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="favoriteFood" name="favoriteFood" class="com.test03.Food">
+		<property name="name" value="킹크랩"></property>
+		<property name="price" value="200000"></property>
+	</bean>
+	
+ 	<bean id="unFavoriteFood" name="unFavoriteFood" class="com.test03.Food">
+		<property name="name" value="두리안"></property>
+		<property name="price" value="10000"></property>
+	</bean>
+	
+	<bean id="myFood" class="com.test03.MyFood" autowire="constructor"></bean>
+	<!-- ByName : setter 와 같은 이름(ID/NAME)의 bean 이 있으면 자동 할당 -->
+	<!-- ByType : setter 의 파라미터 타입과 같은 타입의 bean이 있으면 자동 할당 -->
+	<!-- constructor : 생성자의 파라미터 타입과 같은 타입의 bean 이 있으면 자동 할당 / 여러개면 id나 name 으로 할당. / 할당불가면 기본생성자 호출 -->
+	<!-- default : 생성자에 할당할 type이 있는지 확인 후(constructor) / 없으면 setter 파라미터에 할당할 type이 있는지 확인(ByType) / @Autowired라는 어노테이션이 이 방식으로 동작 -->
+</beans>
+
+<!-- 
+Controls whether bean properties are "autowired". 
+This is an automagical process in which bean references don't need to be coded explicitly in the XML bean definition file, but rather the Spring container works out dependencies. 
+The effective default is "no". 
+Bean 특성이 "자동 유선"인지 여부를 제어합니다. 
+이것은 빈 참조가 XML 빈 정의 파일에서 명시 적으로 코딩 될 필요는 없지만 스프링 컨테이너는 종속성을 처리하는 자동 프로세스입니다. 
+유효 기본값은 "아니오"입니다.
+
+There are 4 modes: 
+4 가지 모드가 있습니다 :
+
+
+1. "no" The traditional Spring default. No automagical wiring. 
+Bean references must be defined in the XML file via the <ref/> element (or "ref" attribute). 
+We recommend this in most cases as it makes documentation more explicit. 
+Note that this default mode also allows for annotation-driven autowiring, if activated. 
+"no" refers to externally driven autowiring only, not affecting any autowiring demands that the bean class itself expresses. 
+1. "no"전통적인 스프링 기본값. 
+자동 배선이 없습니다. 
+Bean 참조는 <ref /> 요소 (또는 "ref"속성)를 통해 XML 파일에 정의되어야합니다. 
+대부분의 경우 문서를보다 명확하게하기 때문에이 방법을 권장합니다. 
+이 기본 모드는 활성화 된 경우 주석 구동 자동 배선을 허용합니다. 
+"아니오"는 외부 구동 자동 배선만을 의미하며, 빈 클래스 자체가 표현하는 자동 배선 요구에는 영향을 미치지 않습니다.
+
+
+
+2. "byName" Autowiring by property name. 
+If a bean of class Cat exposes a "dog" property, Spring will try to set this to the value of the bean "dog" in the current container. 
+If there is no matching bean by name, nothing special happens. 
+2. "byName"속성 이름 별 자동 배선. 
+Cat 클래스의 bean이 "dog"속성을 노출하면 Spring은 이것을 현재 컨테이너의 bean "dog"값으로 설정하려고 시도합니다. 
+이름별로 일치하는 Bean이 없으면 특별한 작업이 없습니다. 
+
+
+
+3. "byType" Autowiring if there is exactly one bean of the property type in the container. 
+If there is more than one, a fatal error is raised, and you cannot use byType autowiring for that bean. 
+If there is none, nothing special happens. 
+3. "byType" 컨테이너에 속성 유형의 Bean이 정확히 하나 인 경우 자동 연결. 
+둘 이상이 있으면 치명적인 오류가 발생하여 해당 Bean에 대해 byType 자동 배선을 사용할 수 없습니다. 
+아무것도 없으면 특별한 일이 없습니다.
+
+
+
+4. "constructor" Analogous to "byType" for constructor arguments. 
+If there is not exactly one bean of the constructor argument type in the bean factory, a fatal error is raised. 
+4. "생성자"생성자 인수의 "byType"과 유사합니다. 
+Bean 팩토리에 생성자 인수 유형의 Bean이 정확히 하나 없으면 치명적인 오류가 발생합니다. 
+
+
+
+Note that explicit dependencies, i.e. "property" and "constructor-arg" elements, always override autowiring. 
+Note: This attribute will not be inherited by child bean definitions. 
+Hence, it needs to be specified per concrete bean definition. 
+It can be shared through the 'default-autowire' attribute at the 'beans' level and potentially inherited from outer 'beans' defaults in case of nested 'beans' sections (e.g. with different profiles).
+명시 적 종속성, 즉 "property"및 "constructor-arg"요소는 항상 자동 배선을 재정의합니다. 
+참고 :이 속성은 하위 Bean 정의에 상속되지 않습니다. 
+따라서 콘크리트 Bean 정의마다 지정해야합니다. 
+'beans'레벨에서 'default-autowire'속성을 통해 공유 할 수 있으며 중첩 된 'beans'섹션 (예 : 다른 프로파일)의 경우 외부 'beans'기본값에서 상속 될 수 있습니다.
+ -->

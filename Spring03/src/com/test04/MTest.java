@@ -12,7 +12,5 @@ public class MTest {
 
 		System.out.println(hong);
 		System.out.println(lee);
-
-		((ClassPathXmlApplicationContext) factory).close();
 	}
 }

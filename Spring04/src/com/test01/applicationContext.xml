@@ -35,9 +35,9 @@
 		<!-- 5. setArray(String[] arr) 호출 -->
 		<property name="array">			
 			<array>
-				<value>최찬현</value>
-				<value>조현준</value>
-				<value>백승아</value> 
+				<value>홍길동</value>
+				<value>이순신</value>
+				<value>왕건</value> 
 			</array>	
 		</property>
 
@@ -87,13 +87,13 @@
 					<property name="eng" value="98"></property>
 					<property name="math" value="87"></property>
 				</bean>
-				<ref bean="cho"/>				
+				<ref bean="lee"/>				
 			</list>
 		</property>
 	</bean>
 	
-	<bean id="cho" class="com.test01.Score">
-		<constructor-arg name="name" value="조현준"></constructor-arg>
+	<bean id="lee" class="com.test01.Score">
+		<constructor-arg name="name" value="이순신"></constructor-arg>
 		<constructor-arg name="kor" value="100"></constructor-arg>
 		<constructor-arg name="eng" value="100"></constructor-arg>
 		<constructor-arg name="math" value="100"></constructor-arg>
