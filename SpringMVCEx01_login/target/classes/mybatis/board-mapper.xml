@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="board">
+
+	<select id="selectList" resultType="exDto">
+		SELECT *
+		FROM MYBOARD
+		ORDER BY MYNO DESC
+	</select>
+	
+	<select id="selectOne" resultType="exDto" parameterType="int">
+		SELECT *
+		FROM MYBOARD
+		WHERE MYNO = #{MYNO}
+	</select>
+	
+	<insert id="insert" parameterType="exDto">
+		INSERT INTO MYBOARD
+		VALUES(MYNOSEQ.NEXTVAL, #{MYNAME}, #{MYTITLE}, #{MYCONTENT}, SYSDATE)
+	</insert>
+
+	<update id="update" parameterType="exDto">
+		UPDATE MYBOARD
+		SET MYTITLE = #{MYTITLE}, MYCONTENT= #{MYCONTENT}
+		WHERE MYNO = #{MYNO}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM MYBOARD
+		WHERE MYNO = #{MYNO}
+	</delete>
+	
+</mapper>
